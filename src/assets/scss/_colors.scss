@@ -1,0 +1,25 @@
+// $main-color: #171821;
+$main-color: #171627;
+$select-hover: #13141c;
+$dark-color: rgb(28, 30, 34);
+$dark-light: #343a40;
+$second-color: #aaa;
+$nav-color: rgba(255, 255, 255, 0.5);
+$seond-color2: #7a8288;
+$blue-color: #4799eb;
+$pink-color:#d5057f;
+$c-pink-hov:#fb0494;
+$border-image: radial-gradient(#d5057f, #4799eb) 2;
+@mixin trans($pro, $dur: 0.3s) {
+    transition: $pro $dur;
+    -webkit-transition: $pro $dur;
+    -moz-transition: $pro $dur;
+    -ms-transition: $pro $dur;
+    -o-transition: $pro $dur;
+}
+
+@mixin center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,63 @@
+<div class="header">
+    <div class="container vh-100 align d-flex justify-content-center align-items-center">
+        <div class="row shadow rounded overflow-hidden bg ">
+            <div class="col-12 col-md-5 ">
+                <div class="image  h-100" style="background: url(./assets/images/b1.jpg)center / cover no-repeat;">
+                </div>
+            </div>
+
+
+            <div class="col-12 col-md-7">
+                <form class="p-4" [formGroup]="logInForm" (ngSubmit)="submitlogInForm(logInForm)">
+                    <h2 class="h5 text-center mb-3">LogIn</h2>
+
+                    <div *ngIf='msgError' class="alert alert-danger m-2">
+                        {{msgError}}
+                    </div>
+
+                    <!-- Inputs  -->
+                    <div class="data row g-3">
+                        <div class="col-12">
+                            <div class="input-data position-relative mt-3 re">
+                                <input class="bg-transparent" [ngClass]="{'form-control': true, 'is-valid': logInForm.get('email')?.valid,  'is-invalid': logInForm.get('email')?.invalid && logInForm.get('email')?.value }" type="email" placeholder="Enter Your Email " formControlName="email"
+                                />
+                            </div>
+                            <div class="msg-error small" *ngIf="logInForm.get('email')?.errors && logInForm.get('email')?.touched ">
+                                <p class="c-pink" *ngIf="logInForm.get('email')?.getError('required')"> E-mail Required</p>
+                                <p class="c-pink" *ngIf="logInForm.get('email')?.getError('email')"> In Valid Format E-mail</p>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="input-data position-relative mt-3 re">
+                                <input class="bg-transparent" [ngClass]="{ 'form-control': true, 'is-valid': logInForm.get('password')?.valid, 'is-invalid': logInForm.get('password')?.invalid && logInForm.get('password')?.value }" type="password" placeholder="Enter Your Password " formControlName="password"
+                                />
+                            </div>
+                            <div class="msg-error small" *ngIf="logInForm.get('password')?.errors &&logInForm.get('password')?.touched">
+                                <p class="c-pink" *ngIf="logInForm.get('password')?.getError('required')">Password Required </p>
+                                <p class="c-pink" *ngIf="logInForm.get('password')?.getError('minlength')">Min Length 2</p>
+                                <p class="c-pink" *ngIf="logInForm.get('password')?.getError('maxlength')"> Max Length 10</p>
+                                <ul class="c-pink" *ngIf="logInForm.get('password')?.getError('pattern')">
+                                    <li>Start A to Z</li>
+                                    <li>Write Number Or Char</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn bg-transparent  btn-form re text-uppercase mt-4" [disabled]="logInForm.invalid">
+                            log In
+                            <span *ngIf="isLoading"><i class="fas fa-spinner fa-spin"></i></span>
+                          </button>
+                        </div>
+                        <div class="col-12">
+                            <p class="mt-1  text-center">
+                                Not a member yet?
+                                <a class="btn-link text-decoration-none c-pink hover cp" routerLink="/auth/joinUs">Create Account
+                              <i class="fa-solid fa-angle-right fa-fw"></i>
+                            </a>
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>

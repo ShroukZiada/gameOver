@@ -1,0 +1,9 @@
+@import "./../../../../assets/scss/_colors";
+#wrapper {
+    background: rgb(11, 13, 16) url(../../../../assets/images/slide-bg.png) no-repeat top;
+    background-size: cover;
+    min-height: calc(50vh);
+    text-align: center;
+    display: flex;
+    align-items: center;
+}

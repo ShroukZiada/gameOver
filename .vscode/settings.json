@@ -1,0 +1,5 @@
+{
+  // "html.validate.styles": false,
+    "html.format.templating": true,
+    "html.format.indentInnerHtml": false
+}
